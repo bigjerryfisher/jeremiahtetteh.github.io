@@ -77,9 +77,9 @@
     <section id="gallery">
       <h2>Project Gallery</h2>
       <div class="row" id="gallery-container">
-        <div class="col-md-4 mb-3"><img src="img/project1.jpg" alt="Project 1" class="gallery-img"></div>
-        <div class="col-md-4 mb-3"><img src="img/project2.jpg" alt="Project 2" class="gallery-img"></div>
-        <div class="col-md-4 mb-3"><img src="img/project3.jpg" alt="Project 3" class="gallery-img"></div>
+        <div class="col-md-4 mb-3"><img src="img/fso_mimo_1.jpg" alt="FSO MIMO Project 1" class="gallery-img"></div>
+        <div class="col-md-4 mb-3"><img src="img/fso_mimo_2.jpg" alt="FSO MIMO Project 2" class="gallery-img"></div>
+        <div class="col-md-4 mb-3"><img src="img/fso_mimo_3.jpg" alt="FSO MIMO Project 3" class="gallery-img"></div>
       </div>
       <p>You can add or upload more images to the <code>img</code> folder and they will show here.</p>
     </section>
@@ -118,12 +118,12 @@
   </footer>
 
   <script>
-    const galleryImages = ["project4.jpg", "project5.jpg"];
+    const galleryImages = ["fso_mimo_4.jpg", "fso_mimo_5.jpg"];
     const gallery = document.getElementById('gallery-container');
-    galleryImages.forEach(img => {
+    galleryImages.forEach((img, index) => {
       const col = document.createElement('div');
       col.className = 'col-md-4 mb-3';
-      col.innerHTML = `<img src="img/${img}" alt="Project" class="gallery-img">`;
+      col.innerHTML = `<img src="img/${img}" alt="FSO MIMO Project ${index + 4}" class="gallery-img">`;
       gallery.appendChild(col);
     });
   </script>
