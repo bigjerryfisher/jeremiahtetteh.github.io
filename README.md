@@ -36,5 +36,5 @@ Built with: **HTML · CSS (custom design system) · Vanilla JS**
 ## Contact
 
 - 📧 [tettehjeremiah@ymail.com](mailto:tettehjeremiah@ymail.com)
-- 💼 [linkedin.com/in/jeremiah-tetteh](https://linkedin.com/in/jeremiah-tetteh)
+- 💼 [linkedin.com/in/jeremiah-t-a20116a1](https://www.linkedin.com/in/jeremiah-t-a20116a1)
 - 🐙 [github.com/bigjerryfisher](https://github.com/bigjerryfisher)
