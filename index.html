@@ -1,131 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeremiah Tetteh | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-    }
-    header, footer {
-      background-color: #003366;
-      color: white;
-      padding: 2rem 1rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: white;
-      text-decoration: none;
-    }
-    .project, .link-list a, .blog-entry {
-      background: white;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-    .btn-primary {
-      background-color: #003366;
-      border: none;
-    }
-    .gallery-img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremiah Fiifi Tetteh · BiGJerryFisher</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Clash+Display:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0c0c10;
+  --page:#faf9f6;
+  --surface:#f2f0eb;
+  --card:#ffffff;
+  --green:#00875a;
+  --green-soft:#e6f5f0;
+  --amber:#b45309;
+  --amber-soft:#fef3c7;
+  --purple:#5b21b6;
+  --purple-soft:#ede9fe;
+  --muted:#6b7280;
+  --border:#e5e2db;
+  --border-strong:#c4c0b8;
+}
+html{scroll-behavior:smooth}
+body{background:var(--page);color:var(--ink);font-family:'DM Mono',monospace;font-size:15px;line-height:1.6;overflow-x:hidden}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,249,246,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-id{font-family:'Clash Display',sans-serif;font-size:.9rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.nav-id span{color:var(--green)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-status{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:var(--green)}
+.status-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero{min-height:calc(100vh - 56px);display:grid;grid-template-columns:1fr 400px;align-items:stretch}
+.hero-left{padding:5rem 3rem 5rem 2.5rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border)}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--muted)}
+.hero-name{font-family:'Clash Display',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:.95;letter-spacing:-.04em;margin-bottom:.5rem}
+.hero-name em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--green)}
+.hero-alias{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--muted);margin-bottom:2.5rem}
+.hero-bio{font-size:.88rem;color:var(--muted);max-width:480px;line-height:1.85;margin-bottom:3rem}
+.hero-bio strong{color:var(--ink)}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.05em;text-decoration:none;border-radius:3px;transition:all .18s;cursor:pointer;border:none}
+.btn-dark{background:var(--ink);color:var(--page)}
+.btn-dark:hover{background:#2d2d3a}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--border-strong)}
+.btn-outline:hover{border-color:var(--ink);background:var(--surface)}
+
+.hero-right{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.hero-stat-block{background:var(--card);padding:1.8rem 2rem;display:flex;flex-direction:column;flex:1;position:relative;overflow:hidden}
+.hero-stat-block::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px}
+.hsb-green::after{background:var(--green)}
+.hsb-amber::after{background:var(--amber)}
+.hsb-purple::after{background:var(--purple)}
+.hsb-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.hsb-num{font-family:'Clash Display',sans-serif;font-size:3.2rem;font-weight:700;letter-spacing:-.04em;line-height:1;margin:.3rem 0 .4rem}
+.hsb-green .hsb-num{color:var(--green)}
+.hsb-amber .hsb-num{color:var(--amber)}
+.hsb-purple .hsb-num{color:var(--purple)}
+.hsb-sub{font-size:.72rem;color:var(--muted);line-height:1.5}
+
+.marquee-wrap{background:var(--ink);color:var(--page);padding:.7rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;animation:marquee 32s linear infinite}
+.marquee-track span{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;padding:0 2.5rem;color:rgba(255,255,255,.5)}
+.marquee-track span em{color:#00e096;font-style:normal}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 2.5rem}
+.sec{padding:5rem 0;border-bottom:1px solid var(--border)}
+.sec-hd{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3.5rem}
+.sec-num{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.sec-title{font-family:'Clash Display',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.03em;line-height:1}
+.sec-title em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+
+.bento{display:grid;gap:1px;background:var(--border)}
+.bento-2{grid-template-columns:1fr 1fr}
+.bento-3{grid-template-columns:2fr 1fr 1fr}
+.cell{background:var(--card);padding:2rem 2.2rem;position:relative;overflow:hidden;transition:background .2s}
+.cell:hover{background:#fdfcfa}
+.cell-tag{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+.tag-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green)}.dot-amber{background:var(--amber)}.dot-purple{background:var(--purple)}.dot-ink{background:var(--ink)}
+.cell h3{font-family:'Clash Display',sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.7rem;line-height:1.3}
+.cell p{font-size:.8rem;color:var(--muted);line-height:1.78}
+.cell-num{font-family:'Clash Display',sans-serif;font-size:2.8rem;font-weight:700;letter-spacing:-.05em;line-height:1;margin-bottom:.3rem}
+.num-green{color:var(--green)}.num-amber{color:var(--amber)}.num-purple{color:var(--purple)}
+.pill-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.pill{font-size:.63rem;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .6rem;border-radius:2px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.pill-green{background:var(--green-soft);color:#065f46;border-color:#a7f3d0}
+.pill-amber{background:var(--amber-soft);color:#92400e;border-color:#fcd34d}
+.pill-purple{background:var(--purple-soft);color:#3b0764;border-color:#c4b5fd}
+.cell-corner{position:absolute;top:1.5rem;right:1.5rem;font-family:'Clash Display',sans-serif;font-size:1.6rem;font-weight:700;opacity:.12;color:var(--ink)}
+
+.feat{background:var(--ink);color:var(--page);padding:2.5rem 3rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
+.feat-label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.9rem}
+.feat h3{font-family:'Clash Display',sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.9rem;line-height:1.2}
+.feat p{font-size:.82rem;color:rgba(255,255,255,.58);line-height:1.82;margin-bottom:1.5rem;max-width:500px}
+.feat-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.feat-pill{font-size:.63rem;letter-spacing:.07em;padding:.22rem .6rem;border-radius:2px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.11)}
+.feat-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);flex-shrink:0;min-width:220px}
+.fm{background:var(--ink);padding:1.3rem 1rem;text-align:center}
+.fm-n{font-family:'Clash Display',sans-serif;font-size:1.8rem;font-weight:700;color:#00e096;letter-spacing:-.03em}
+.fm-l{font-size:.63rem;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;margin-top:.2rem}
+
+.reviewer-strip{background:var(--green);color:white;padding:2.5rem 3rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:1px}
+.rs-left h3{font-family:'Clash Display',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.4rem}
+.rs-left p{font-size:.8rem;opacity:.85;max-width:520px;line-height:1.72}
+.rs-stats{display:flex;gap:2rem}
+.rs-s{text-align:center}
+.rs-n{font-family:'Clash Display',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.04em}
+.rs-l{font-size:.63rem;opacity:.68;letter-spacing:.1em;text-transform:uppercase;margin-top:.1rem}
+.journals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.jcard{background:var(--card);padding:1.5rem 1.8rem}
+.jcard-pub{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.4rem}
+.jcard h4{font-family:'Clash Display',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.4rem;line-height:1.3}
+.jcard p{font-size:.77rem;color:var(--muted);line-height:1.65}
+
+.cert-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)}
+.cert-item{background:var(--card);padding:1.3rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:background .2s}
+.cert-item:hover{background:var(--surface)}
+.cert-mark{width:32px;height:32px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.72rem;flex-shrink:0;font-weight:700;font-family:'Clash Display',sans-serif}
+.cm-green{background:var(--green-soft);color:var(--green)}
+.cm-amber{background:var(--amber-soft);color:var(--amber)}
+.cm-purple{background:var(--purple-soft);color:var(--purple)}
+.cm-gray{background:var(--surface);color:var(--muted)}
+.cert-name{font-size:.8rem;font-weight:500;margin-bottom:.2rem;line-height:1.35;color:var(--ink)}
+.cert-issuer{font-size:.7rem;color:var(--muted)}
+.cert-yr{font-size:.63rem;color:var(--green);margin-top:.2rem;letter-spacing:.05em}
+
+.mw-spotlight{background:var(--surface);border:1px solid var(--border);padding:2.5rem;display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:start;margin-bottom:1px}
+.mw-badge{display:inline-flex;align-items:center;gap:.5rem;background:#e33b1c;color:white;font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .7rem;border-radius:2px;margin-bottom:1rem}
+.mw-title{font-family:'Clash Display',sans-serif;font-size:1.35rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.6rem}
+.mw-desc{font-size:.8rem;color:var(--muted);line-height:1.78}
+.mw-verify{font-size:.7rem;color:var(--green);margin-top:.7rem}
+.mw-courses{display:grid;grid-template-columns:1fr;gap:.35rem}
+.mw-course{font-size:.72rem;color:var(--muted);padding:.32rem .6rem;background:var(--card);border:1px solid var(--border);border-radius:2px;display:flex;align-items:center;gap:.4rem}
+.mw-course::before{content:'✓';color:var(--green);font-size:.63rem;flex-shrink:0}
+
+.skills-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.skill-col{background:var(--card);padding:2rem}
+.skill-col-title{font-family:'Clash Display',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:-.01em;margin-bottom:1.2rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.skill-item{font-size:.77rem;color:var(--muted);padding:.35rem 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.skill-bar{height:2px;background:var(--border);width:55px;border-radius:1px;overflow:hidden;flex-shrink:0}
+.skill-fill{height:100%;background:var(--green);border-radius:1px;width:0;transition:width 1s ease}
+
+.tl{position:relative}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{padding-left:2rem;padding-bottom:2.2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-3px;top:6px;width:7px;height:7px;border-radius:50%;background:var(--ink)}
+.tl-date{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.25rem}
+.tl-role{font-family:'Clash Display',sans-serif;font-size:.98rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.15rem}
+.tl-org{font-size:.77rem;color:var(--muted);margin-bottom:.45rem}
+.tl-desc{font-size:.78rem;color:var(--muted);line-height:1.72}
+
+.mission{padding:5.5rem 2.5rem;text-align:center;background:var(--ink);color:var(--page)}
+.mission-q{font-family:'Instrument Serif',serif;font-size:clamp(1.3rem,2.8vw,2rem);font-style:italic;font-weight:400;line-height:1.55;max-width:740px;margin:0 auto 1.8rem;color:rgba(255,255,255,.88)}
+.mission-attr{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.contact-left{background:var(--card);padding:3rem 2.5rem}
+.contact-left h2{font-family:'Clash Display',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:1rem}
+.contact-left p{font-size:.83rem;color:var(--muted);line-height:1.78;margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.clink{background:var(--card);padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--ink);font-size:.8rem;transition:background .2s;justify-content:space-between}
+.clink:hover{background:var(--surface)}
+.clink-left{display:flex;align-items:center;gap:1rem}
+.clink-icon{width:32px;height:32px;background:var(--surface);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.72rem;flex-shrink:0;color:var(--muted);font-family:'Clash Display',sans-serif;font-weight:600}
+.clink-sub{font-size:.68rem;color:var(--muted)}
+
+footer{background:var(--ink);color:rgba(255,255,255,.3);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;letter-spacing:.07em}
+footer em{color:rgba(255,255,255,.6);font-style:normal}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{flex-direction:row;flex-wrap:wrap}
+  .hero-stat-block{flex:1;min-width:150px}
+  .feat{grid-template-columns:1fr;gap:1.5rem}
+  .feat-metrics{grid-template-columns:repeat(4,1fr)}
+  .bento-3{grid-template-columns:1fr 1fr}
+  .skills-wrap{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .mw-spotlight{grid-template-columns:1fr}
+  .journals-grid{grid-template-columns:1fr}
+  .reviewer-strip{grid-template-columns:1fr}
+  nav .nav-links{display:none}
+}
+</style>
 </head>
 <body>
-  <header class="text-center">
-    <h1>Jeremiah Tetteh</h1>
-    <p>Embedded Systems & IoT Engineer | Researcher | MATLAB Specialist</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#blog">Blog</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main class="container py-4">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am an innovative Embedded Systems and IoT Engineer with strong research experience in intelligent systems, image processing, and automation. With over 7 years in electronics and circuit design, and 5+ years of MATLAB and AI application experience, I’ve contributed to impactful research in waste-to-energy, IoT, and solar power integration. I'm passionate about leveraging engineering to solve real-world challenges and mentoring others to grow in tech.</p>
-    </section>
+<nav>
+  <div class="nav-id">Jeremiah <span>Tetteh</span></div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-status"><div class="status-dot"></div>Open to opportunities</div>
+</nav>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h4>Smart Irrigation System</h4>
-        <p>Used ESP8266, DHT22, and soil moisture sensors to monitor and automate irrigation. Data is synced with Firebase for remote monitoring.</p>
-      </div>
-      <div class="project">
-        <h4>Climate Monitoring for Pharma Industry</h4>
-        <p>Designed a system to monitor humidity, temperature, and soil moisture, enabling real-time control via Firebase and an LCD display.</p>
-      </div>
-      <div class="project">
-        <h4>CNN for Waste Image Classification</h4>
-        <p>Built a deep learning solution using ResNet-101 in MATLAB to classify waste for recycling and energy conversion. Research presented at IEOM 2020 in Zimbabwe.</p>
-      </div>
-    </section>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">AI &amp; IoT Solutions Engineer · Accra, Ghana · GCTU</div>
+    <h1 class="hero-name">Jeremiah<br><em>Fiifi</em> Tetteh</h1>
+    <p class="hero-alias">// BiGJerryFisher</p>
+    <p class="hero-bio">
+      <strong>Computer vision, deep learning &amp; embedded systems engineer</strong> building AI for Africa's future.
+      Peer reviewer for Elsevier, Wiley, World Scientific &amp; Inderscience.
+      Certified MathWorks Computer Vision Engineer. Mentor to the next generation of Ghanaian engineers.
+      Ready to relocate.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:tettehjeremiah@ymail.com" class="btn btn-dark">Get in touch →</a>
+      <a href="https://github.com/bigjerryfisher" class="btn btn-outline" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/jeremiah-tetteh" class="btn btn-outline" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-block hsb-green">
+      <div class="hsb-label">Best model accuracy</div>
+      <div class="hsb-num" id="hn1">0%</div>
+      <div class="hsb-sub">Waste segregation CNN — ResNet-101 · MATLAB</div>
+    </div>
+    <div class="hero-stat-block hsb-amber">
+      <div class="hsb-label">Peer reviews completed</div>
+      <div class="hsb-num" id="hn2">0</div>
+      <div class="hsb-sub">Elsevier · Wiley · World Scientific · Inderscience</div>
+    </div>
+    <div class="hero-stat-block hsb-purple">
+      <div class="hsb-label">Professional certificates</div>
+      <div class="hsb-num" id="hn3">0+</div>
+      <div class="hsb-sub">MathWorks · DeepLearning.AI · UIUC · ISO 9001</div>
+    </div>
+  </div>
+</section>
 
-    <section id="gallery">
-      <h2>Project Gallery</h2>
-      <div class="row" id="gallery-container">
-        <div class="col-md-4 mb-3"><img src="img/fso_mimo_1.jpg" alt="FSO MIMO Project 1" class="gallery-img"></div>
-        <div class="col-md-4 mb-3"><img src="img/fso_mimo_2.jpg" alt="FSO MIMO Project 2" class="gallery-img"></div>
-        <div class="col-md-4 mb-3"><img src="img/fso_mimo_3.jpg" alt="FSO MIMO Project 3" class="gallery-img"></div>
-      </div>
-      <p>You can add or upload more images to the <code>img</code> folder and they will show here.</p>
-    </section>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>MATLAB R2025b</span><span><em>·</em></span><span>YOLOv4-Tiny</span><span><em>·</em></span><span>DenseNet-201</span><span><em>·</em></span><span>MobileNet CNN</span><span><em>·</em></span><span>Elsevier Reviewer</span><span><em>·</em></span><span>ResNet-101</span><span><em>·</em></span><span>ESP32 · Arduino</span><span><em>·</em></span><span>PID Control</span><span><em>·</em></span><span>MPU6050</span><span><em>·</em></span><span>TensorFlow</span><span><em>·</em></span><span>IoT Systems</span><span><em>·</em></span><span>MathWorks UX Contributor</span><span><em>·</em></span><span>MATLAB R2025b</span><span><em>·</em></span><span>YOLOv4-Tiny</span><span><em>·</em></span><span>DenseNet-201</span><span><em>·</em></span><span>MobileNet CNN</span><span><em>·</em></span><span>Elsevier Reviewer</span><span><em>·</em></span><span>ResNet-101</span><span><em>·</em></span><span>ESP32 · Arduino</span><span><em>·</em></span><span>PID Control</span><span><em>·</em></span><span>MPU6050</span><span><em>·</em></span><span>TensorFlow</span><span><em>·</em></span><span>IoT Systems</span><span><em>·</em></span><span>MathWorks UX Contributor</span><span><em>·</em></span>
+  </div>
+</div>
 
-    <section id="blog">
-      <h2>Latest Blog Posts</h2>
-      <div class="blog-entry">
-        <h5>Combining IoT with Renewable Energy</h5>
-        <p>A brief exploration of how embedded systems are changing the solar energy landscape using smart monitoring and control solutions.</p>
-      </div>
-      <div class="blog-entry">
-        <h5>Debugging Embedded Systems: Tips from the Field</h5>
-        <p>Lessons learned from field work and prototyping embedded applications in real-world settings.</p>
-      </div>
-      <p>You can edit and update blog entries using Netlify CMS or by editing markdown files if deployed to Netlify.</p>
-    </section>
+<section id="projects" class="sec">
+<div class="wrap">
+  <div class="sec-hd reveal"><span class="sec-num">01</span><h2 class="sec-title">Selected <em>Projects</em></h2></div>
 
-    <section id="cv">
-      <h2>My CV</h2>
-      <a href="Jeremiah_Tetteh_Research_CV_2025.pdf" class="btn btn-primary" download>Download CV (PDF)</a>
-    </section>
+  <div class="feat reveal" style="margin-bottom:1px">
+    <div>
+      <div class="feat-label">★ Flagship · International Conference · Zimbabwe 2020</div>
+      <h3>Solid Waste Segregation System<br>Using CNN (ResNet-101 · MATLAB)</h3>
+      <p>Designed and constructed an intelligent waste segregation system classifying solid waste into Paper, Plastic, Metal, and Glass in real-time using deep learning. Achieved 98–100% accuracy. Research published at international conference. Supervised by Dr. Ruhiya Abubakar at GCTU. Directly addresses Ghana's urban waste crisis with AI.</p>
+      <div class="feat-pills"><span class="feat-pill">ResNet-101</span><span class="feat-pill">MATLAB</span><span class="feat-pill">Raspberry Pi</span><span class="feat-pill">CNN</span><span class="feat-pill">Published</span><span class="feat-pill">Real-time</span></div>
+    </div>
+    <div class="feat-metrics">
+      <div class="fm"><div class="fm-n">98%</div><div class="fm-l">Accuracy</div></div>
+      <div class="fm"><div class="fm-n">4</div><div class="fm-l">Classes</div></div>
+      <div class="fm"><div class="fm-n">2020</div><div class="fm-l">Published</div></div>
+      <div class="fm"><div class="fm-n">Live</div><div class="fm-l">Real-time</div></div>
+    </div>
+  </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="link-list">
-        <p><i class="fas fa-envelope"></i> <a href="mailto:tettehjeremiah@ymail.com">tettehjeremiah@ymail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jeremiah-t-a20116a1/">LinkedIn</a></p>
-        <p><i class="fab fa-researchgate"></i> <a href="https://www.researchgate.net/profile/Jeremiah-Tetteh">ResearchGate</a></p>
-        <p><i class="fas fa-graduation-cap"></i> <a href="https://mathworks.academia.edu/JeremiahTetteh">Academia.edu</a></p>
-      </div>
-    </section>
-  </main>
+  <div class="feat reveal" style="background:#16162a;margin-bottom:1px">
+    <div>
+      <div class="feat-label">★ Expert Community Engagement · 2K+ LinkedIn Impressions · 2026</div>
+      <h3>YOLOv4-Tiny + MobileNet CNN<br>Hand Gesture Recognition for Robotics</h3>
+      <p>Two-stage real-time pipeline: YOLOv4-Tiny for hand detection, MobileNet CNN for gesture classification. Compared full YOLOv4 vs YOLOv4-Tiny — training loss dropped from ~1888 to ~1–2. Feedback from MathWorks professionals George Amarantidis and Morgan Fremovici. Collaboration with Joel Ahulu. Extending to full robot control framework.</p>
+      <div class="feat-pills"><span class="feat-pill">MATLAB R2025b</span><span class="feat-pill">YOLOv4-Tiny</span><span class="feat-pill">MobileNet</span><span class="feat-pill">Robotics</span><span class="feat-pill">Computer Vision</span></div>
+    </div>
+    <div class="feat-metrics">
+      <div class="fm" style="background:#16162a"><div class="fm-n">5</div><div class="fm-l">Gestures</div></div>
+      <div class="fm" style="background:#16162a"><div class="fm-n">~1-2</div><div class="fm-l">Final Loss</div></div>
+      <div class="fm" style="background:#16162a"><div class="fm-n">2K+</div><div class="fm-l">Impressions</div></div>
+      <div class="fm" style="background:#16162a"><div class="fm-n">Live</div><div class="fm-l">Webcam</div></div>
+    </div>
+  </div>
 
-  <footer>
-    <p class="text-center">© 2025 Jeremiah Tetteh. All Rights Reserved.</p>
-  </footer>
+  <div class="bento bento-3 reveal" style="margin-top:1px">
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-green"></div>Embedded Systems · 2026</div>
+      <div class="cell-num num-green">±2°</div>
+      <h3>Self-Balancing Bicopter (MPU6050)</h3>
+      <p>Built from scratch: PID control at 250Hz, complementary filter sensor fusion, real-time stabilization. Working prototype. Bicopter is inherently unstable — two tilting motors, no passive stability. Harder than a quadcopter by design.</p>
+      <div class="pill-row"><span class="pill pill-green">Arduino</span><span class="pill pill-green">MPU6050</span><span class="pill">PID</span><span class="pill pill-green">Working ✓</span></div>
+    </div>
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-ink"></div>Computer Vision · 2026</div>
+      <div class="cell-num" style="color:var(--ink);font-family:'Clash Display',sans-serif;font-size:2.8rem;font-weight:700;letter-spacing:-.05em;line-height:1;margin-bottom:.3rem">9.1%</div>
+      <h3>Wood Knots Detector (ACF)</h3>
+      <p>ACF object detector for industrial wood quality inspection in MATLAB R2025b. Miss rate: 0.0909 — near-production accuracy for manufacturing QA workflows.</p>
+      <div class="pill-row"><span class="pill">ACF Detector</span><span class="pill">MATLAB</span><span class="pill pill-green">Industrial</span></div>
+    </div>
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-amber"></div>Agri-AI · 2024 · GCTU</div>
+      <div class="cell-num num-amber">98%+</div>
+      <h3>Smart Cocoa Sorting (DenseNet-201)</h3>
+      <p>Deep learning image segmentation for cocoa bean quality sorting. Addressing Ghana's cocoa industry — the world's 2nd largest producer — with precision AI.</p>
+      <div class="pill-row"><span class="pill pill-amber">DenseNet-201</span><span class="pill">MATLAB</span><span class="pill">Segmentation</span></div>
+    </div>
+  </div>
 
-  <script>
-    const galleryImages = ["fso_mimo_4.jpg", "fso_mimo_5.jpg"];
-    const gallery = document.getElementById('gallery-container');
-    galleryImages.forEach((img, index) => {
-      const col = document.createElement('div');
-      col.className = 'col-md-4 mb-3';
-      col.innerHTML = `<img src="img/${img}" alt="FSO MIMO Project ${index + 4}" class="gallery-img">`;
-      gallery.appendChild(col);
-    });
-  </script>
+  <div class="bento bento-2 reveal" style="margin-top:1px">
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-purple"></div>Predictive Maintenance · Mar–Apr 2024 · GCTU</div>
+      <h3>Audio-based Machine Fault Detection (YamNet CNN)</h3>
+      <p>Industrial machine fault detection using acoustic analysis with YamNet CNN in MATLAB. Real-time audio anomaly detection for proactive maintenance — catching equipment failures before they happen. Processes audio data at inference time.</p>
+      <div class="pill-row"><span class="pill pill-purple">YamNet</span><span class="pill">Acoustic ML</span><span class="pill">MATLAB</span><span class="pill pill-purple">Industrial IoT</span></div>
+    </div>
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-green"></div>Teaching & Community · Jan–Feb 2026 · GCTU + DELL</div>
+      <h3>YOLOv4 Live Detection Workshop</h3>
+      <p>Taught 10+ students real-time object detection in MATLAB R2025b. A cell phone was detected at 99.3% confidence from a tricky angle — the room went electric. 3,725+ LinkedIn impressions. Partner: DELL. Students featured: Kanie Emmanuel Bawa, Princess Delali Appeh, Herbert Asante.</p>
+      <div class="pill-row"><span class="pill pill-green">10+ Students</span><span class="pill">MATLAB</span><span class="pill">YOLOv4</span><span class="pill">GCTU</span><span class="pill pill-green">DELL Partner</span></div>
+    </div>
+  </div>
+
+  <div class="bento bento-3 reveal" style="margin-top:1px">
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-green"></div>Smart City · 2023 · Awusi Robotics</div>
+      <h3>Traffic Control (Gaussian Mixture Models)</h3>
+      <p>Computer vision traffic management using GMM in MATLAB for real-time vehicle detection and adaptive signal control.</p>
+      <div class="pill-row"><span class="pill">GMM</span><span class="pill">MATLAB</span><span class="pill">Smart City</span></div>
+    </div>
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-amber"></div>Security · 2023 · Awusi Robotics</div>
+      <h3>Crime Scene Object Detection (DenseNet + Feature Extraction)</h3>
+      <p>Forensic object detection using DenseNet CNN and feature-based extraction for law enforcement workflows.</p>
+      <div class="pill-row"><span class="pill pill-amber">DenseNet</span><span class="pill">MATLAB</span><span class="pill">Forensics</span></div>
+    </div>
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-purple"></div>IoT · 2022 · Awusi Robotics</div>
+      <h3>Smart Hybrid Energy Monitoring (Grid + Solar)</h3>
+      <p>Real-time IoT energy monitoring for hybrid grid and solar power. Sensor networks and MATLAB analytics for optimization.</p>
+      <div class="pill-row"><span class="pill pill-purple">ESP32</span><span class="pill">IoT</span><span class="pill">MATLAB</span><span class="pill">Renewable Energy</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="research" class="sec" style="background:var(--surface)">
+<div class="wrap">
+  <div class="sec-hd reveal"><span class="sec-num">02</span><h2 class="sec-title">Research &amp; <em>Peer Review</em></h2></div>
+
+  <div class="reviewer-strip reveal">
+    <div class="rs-left">
+      <h3>Elsevier Peer Reviewer — Expert Systems with Applications</h3>
+      <p>Top-tier Q1 journal in AI and Intelligent Systems. Awarded Certificate of Reviewing by the editorial board for completing 10 reviews between November 2025 and April 2026 — formally recognized for contributions to scholarly excellence.</p>
+    </div>
+    <div class="rs-stats">
+      <div class="rs-s"><div class="rs-n">10</div><div class="rs-l">Reviews</div></div>
+      <div class="rs-s"><div class="rs-n">4</div><div class="rs-l">Journals</div></div>
+      <div class="rs-s"><div class="rs-n">Q1</div><div class="rs-l">Tier</div></div>
+    </div>
+  </div>
+
+  <div class="journals-grid reveal">
+    <div class="jcard">
+      <div class="jcard-pub">Elsevier — Expert Systems with Applications</div>
+      <h4>10 Reviews · Certificate of Reviewing</h4>
+      <p>Nov 2025–Apr 2026. Q1 journal in AI & Intelligent Systems. Formally recognized by the editorial board. The gold standard for AI research.</p>
+    </div>
+    <div class="jcard">
+      <div class="jcard-pub">Wiley — Transactions on Emerging Telecomms (ETT)</div>
+      <h4>IoMT Anomaly Detection · Accepted</h4>
+      <p>Reviewed "Inception Gated Recurrent Unit - MLP Based Anomaly Detection in IoMT." Recommendation: Accept with minor revisions. ScholarOne platform.</p>
+    </div>
+    <div class="jcard">
+      <div class="jcard-pub">World Scientific — IJPRAI</div>
+      <h4>LCMW-YOLO · Object Detection · Autonomous Driving</h4>
+      <p>Reviewed salient object detection for complex driving scenarios. Rigorous technical analysis of YOLO architecture and evaluation methodology.</p>
+    </div>
+    <div class="jcard">
+      <div class="jcard-pub">Inderscience — IJAHUC</div>
+      <h4>Generative AI Voice Authentication · IoT</h4>
+      <p>Reviewed AI-enhanced voice authentication for smart access control. Detailed reproducibility, architecture, and hardware critique.</p>
+    </div>
+  </div>
+
+  <div class="bento bento-2 reveal" style="margin-top:1px">
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-green"></div>Published · International Conference · Zimbabwe · 2020</div>
+      <h3>Conference Paper: CNN for Solid Waste Segregation</h3>
+      <p>International conference paper on the deep learning waste segregation system (98–100% accuracy). Supervised by Dr. Ruhiya Abubakar. One of Ghana's earliest published deep learning applications to environmental engineering. The project that started it all.</p>
+      <div class="pill-row"><span class="pill pill-green">Published</span><span class="pill">CNN</span><span class="pill">Environmental Engineering</span><span class="pill">Ghana Research</span></div>
+    </div>
+    <div class="cell">
+      <div class="cell-tag"><div class="tag-dot dot-ink"></div>MathWorks · Volunteer · 2021–Present</div>
+      <h3>MathWorks UX Contributor — Generative AI & Usability</h3>
+      <p>Selected for MathWorks US User Experience Program. Generative AI in Help Center (2025–present) — shaping how millions of engineers access AI-assisted documentation. Usability Panel 2024. ThingSpeak image integration 2021. Sessions with David Marshall, Lexi Crommett PhD, Joelle Perez, Elaine Edmonds.</p>
+      <div class="pill-row"><span class="pill">MathWorks</span><span class="pill pill-amber">Generative AI</span><span class="pill">UX Research</span><span class="pill">4 Years Active</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="certs" class="sec">
+<div class="wrap">
+  <div class="sec-hd reveal"><span class="sec-num">03</span><h2 class="sec-title">Certifications &amp; <em>Credentials</em></h2></div>
+
+  <div class="mw-spotlight reveal">
+    <div>
+      <div class="mw-badge">MathWorks Professional Certificate · April 12, 2026</div>
+      <div class="mw-title">MathWorks Computer Vision Engineer</div>
+      <p class="mw-desc">9-course professional certificate via Coursera — the complete computer vision engineering pipeline from foundational image processing through advanced deep learning and AI-assisted annotation using MATLAB. One of the most comprehensive CV certifications available.</p>
+      <p class="mw-verify">Verify: coursera.org/verify/professional-cert/2K8D4OBRZT8K</p>
+    </div>
+    <div class="mw-courses">
+      <div class="mw-course">Introduction to Image Processing</div>
+      <div class="mw-course">Image Segmentation, Filtering, Region Analysis</div>
+      <div class="mw-course">Automating Image Processing</div>
+      <div class="mw-course">Introduction to Computer Vision</div>
+      <div class="mw-course">Machine Learning for Computer Vision</div>
+      <div class="mw-course">Object Tracking & Motion Detection</div>
+      <div class="mw-course">Intro to Deep Learning for CV</div>
+      <div class="mw-course">Deep Learning for Object Detection</div>
+      <div class="mw-course">Advanced Deep Learning for CV</div>
+    </div>
+  </div>
+
+  <div class="cert-list reveal">
+    <div class="cert-item"><div class="cert-mark cm-green">DL</div><div><div class="cert-name">Neural Networks and Deep Learning</div><div class="cert-issuer">DeepLearning.AI (Andrew Ng)</div><div class="cert-yr">Jan 2026</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-purple">IoT</div><div><div class="cert-name">IoT Devices</div><div class="cert-issuer">University of Illinois Urbana-Champaign</div><div class="cert-yr">Jan 2026 · ID: 7GQ12TXV2IXE</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-amber">FAA</div><div><div class="cert-name">FAA Part 107 Commercial Drone License Prep</div><div class="cert-issuer">LinkedIn Learning</div><div class="cert-yr">Jan 2026</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-green">ISO</div><div><div class="cert-name">ISO 9001:2015 QMS Awareness</div><div class="cert-issuer">Knights of Safety Academy</div><div class="cert-yr">Jan 2026 · Expires Jan 2027</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-amber">HSE</div><div><div class="cert-name">COSHH Risk Assessor Certification</div><div class="cert-issuer">Knights of Safety Academy</div><div class="cert-yr">Jan 2026 · Expires Jan 2027</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-amber">SFT</div><div><div class="cert-name">COSHH365 Software Certification</div><div class="cert-issuer">Knights of Safety Academy</div><div class="cert-yr">Jan 2026</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-purple">Py</div><div><div class="cert-name">Python for Data Science Professional Certificate</div><div class="cert-issuer">Anaconda, Inc.</div><div class="cert-yr">Jan 2025</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-gray">SEC</div><div><div class="cert-name">Information Security Fundamentals</div><div class="cert-issuer">Udemy · ID: UC-8196894f</div><div class="cert-yr">Jan 2025</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-green">ML</div><div><div class="cert-name">Deep Learning Onramp</div><div class="cert-issuer">MathWorks</div><div class="cert-yr">Aug 2024</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-purple">NYU</div><div><div class="cert-name">IAARC Membership</div><div class="cert-issuer">IAARC @ NYU Abu Dhabi</div><div class="cert-yr">Feb 2024</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-amber">BMS</div><div><div class="cert-name">Lithium Batteries & BMS Types</div><div class="cert-issuer">Victron Energy · ID: 74567034</div><div class="cert-yr">Mar 2022</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-amber">SHT</div><div><div class="cert-name">Smart Shunt Installation</div><div class="cert-issuer">Victron Energy · ID: 74567587</div><div class="cert-yr">Mar 2022</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-gray">EEE</div><div><div class="cert-name">Electrical & Electronics Engineering</div><div class="cert-issuer">City & Guilds of London — Distinction</div><div class="cert-yr">Oct 2017</div></div></div>
+    <div class="cert-item"><div class="cert-mark cm-gray">EHS</div><div><div class="cert-name">Engineering Health and Safety</div><div class="cert-issuer">City & Guilds of London</div><div class="cert-yr">Jul 2017</div></div></div>
+  </div>
+</div>
+</section>
+
+<section id="skills" class="sec" style="background:var(--surface)">
+<div class="wrap">
+  <div class="sec-hd reveal"><span class="sec-num">04</span><h2 class="sec-title">Technical <em>Skills</em></h2></div>
+  <div class="skills-wrap reveal" id="skills-grid">
+    <div class="skill-col">
+      <div class="skill-col-title">Deep Learning & Computer Vision</div>
+      <div class="skill-item">CNNs — DenseNet, ResNet, MobileNet<div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div class="skill-item">YOLOv4 / YOLOv4-Tiny<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      <div class="skill-item">Object Detection & Segmentation<div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+      <div class="skill-item">Transfer Learning<div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item">Acoustic Analysis (YamNet)<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item">TensorFlow / Keras<div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Embedded Systems & IoT</div>
+      <div class="skill-item">MATLAB R2025b Full Ecosystem<div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div></div>
+      <div class="skill-item">Arduino / ESP32 / ESP8266<div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      <div class="skill-item">Raspberry Pi<div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item">PID Control Systems<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item">Sensor Fusion (MPU6050, IMU)<div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div class="skill-item">Circuit Design & PCB<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Research, Safety & Programming</div>
+      <div class="skill-item">Peer Review (4 top journals)<div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+      <div class="skill-item">Python — Data Analysis<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item">ISO 9001:2015<div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item">COSHH Risk Assessment<div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item">Information Security<div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-item">FAA Drone Operations<div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+  <div class="sec-hd reveal"><span class="sec-num">05</span><h2 class="sec-title">Experience &amp; <em>Education</em></h2></div>
+  <div class="tl reveal">
+    <div class="tl-item">
+      <div class="tl-date">Apr 2025 – Present</div>
+      <div class="tl-role">IoT & Embedded Systems Engineer</div>
+      <div class="tl-org">HIVE Consult</div>
+      <p class="tl-desc">Designing and deploying commercial IoT automation for agricultural and industrial clients. Sensor-based climate control and smart energy monitoring architectures.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Aug 2025 – Present</div>
+      <div class="tl-role">Electronics & Embedded Systems Engineer</div>
+      <div class="tl-org">Edenway Foundation</div>
+      <p class="tl-desc">Large-scale IoT environmental sensor networks. Embedded control systems for automation. Leading technical training programs for engineering teams.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Jan 2025 – Present</div>
+      <div class="tl-role">Usability Research Contributor — Generative AI</div>
+      <div class="tl-org">MathWorks (Volunteer)</div>
+      <p class="tl-desc">Selected for MathWorks US UX Program. Shaping Generative AI in MATLAB Help Center, influencing how millions of engineers interact with AI-assisted documentation.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Nov 2025 – Present</div>
+      <div class="tl-role">Peer Reviewer</div>
+      <div class="tl-org">Elsevier · Wiley · World Scientific · Inderscience</div>
+      <p class="tl-desc">Active reviewer across 4 top-tier AI journals. 10 reviews for Expert Systems with Applications alone. Awarded Certificate of Reviewing for contributions to scholarly excellence.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2020 – 2023</div>
+      <div class="tl-role">IT Support Specialist</div>
+      <div class="tl-org">Sansar Innovations Ltd & National Signals Bureau</div>
+      <p class="tl-desc">Enterprise IT infrastructure for 300+ users, 99.9% uptime. Emergency coordination systems and cybersecurity protocols for national services.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2017 – 2020</div>
+      <div class="tl-role">BSc. Telecommunications Engineering — Second Class Honours, Upper Division</div>
+      <div class="tl-org">Ghana Communication Technology University (GCTU), Accra</div>
+      <p class="tl-desc">Undergraduate thesis on CNN waste segregation: 98–100% accuracy. Published internationally. Supervised by Dr. Ruhiya Abubakar. MATLAB introduced by Emmanuel Effah, PhD.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="mission">
+  <p class="mission-q">My focus remains on AI for sustainable, practical impact — particularly in emerging markets like Ghana and across Africa. This journey is about translating mentorship into momentum, collaboration into capability, and tools into tangible change.</p>
+  <div class="mission-attr">Jeremiah Fiifi Tetteh · AI & IoT Solutions Engineer · Accra, Ghana</div>
+</div>
+
+<section id="contact">
+<div class="contact-grid">
+  <div class="contact-left reveal">
+    <h2>Let's<br>Connect</h2>
+    <p>Open to research collaborations, peer reviewing, embedded systems projects, AI consulting, and mentorship. Based in Accra, Ghana — ready for relocation globally.</p>
+    <a href="mailto:tettehjeremiah@ymail.com" class="btn btn-dark">Send a message →</a>
+  </div>
+  <div class="contact-links reveal">
+    <a href="mailto:tettehjeremiah@ymail.com" class="clink"><div class="clink-left"><div class="clink-icon">@</div><div><div>tettehjeremiah@ymail.com</div><div class="clink-sub">Primary email</div></div></div><span>→</span></a>
+    <a href="mailto:tettehjeremiah04@gmail.com" class="clink"><div class="clink-left"><div class="clink-icon">@</div><div><div>tettehjeremiah04@gmail.com</div><div class="clink-sub">Research & review</div></div></div><span>→</span></a>
+    <a href="https://github.com/bigjerryfisher" class="clink" target="_blank"><div class="clink-left"><div class="clink-icon">GH</div><div><div>github.com/bigjerryfisher</div><div class="clink-sub">Code & projects</div></div></div><span>→</span></a>
+    <a href="https://linkedin.com/in/jeremiah-tetteh" class="clink" target="_blank"><div class="clink-left"><div class="clink-icon">in</div><div><div>linkedin.com/in/jeremiah-tetteh</div><div class="clink-sub">Professional network</div></div></div><span>→</span></a>
+    <a href="tel:+233557260908" class="clink"><div class="clink-left"><div class="clink-icon">☎</div><div><div>+233 (055) 726 0908</div><div class="clink-sub">Accra, Ghana</div></div></div><span>→</span></a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <span>Jeremiah Fiifi Tetteh · <em>BiGJerryFisher</em> · Accra, Ghana</span>
+  <span>AI & IoT Solutions Engineer · Peer Reviewer · MathWorks Contributor</span>
+</footer>
+
+<script>
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function countUp(el,target,suffix,dur){
+  if(!el)return;
+  const start=performance.now();
+  const run=t=>{
+    const p=Math.min((t-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(ease*target)+suffix;
+    if(p<1)requestAnimationFrame(run);
+  };
+  requestAnimationFrame(run);
+}
+
+const heroObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      setTimeout(()=>countUp(document.getElementById('hn1'),98,'%',1400),100);
+      setTimeout(()=>countUp(document.getElementById('hn2'),10,'',1200),300);
+      setTimeout(()=>countUp(document.getElementById('hn3'),15,'+',1000),500);
+      heroObs.disconnect();
+    }
+  });
+},{threshold:.3});
+const hr=document.querySelector('.hero-right');
+if(hr)heroObs.observe(hr);
+
+const skillsObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.skill-fill').forEach(bar=>{
+        const w=bar.style.width;
+        bar.style.width='0';
+        setTimeout(()=>{bar.style.width=w},100);
+      });
+      skillsObs.disconnect();
+    }
+  });
+},{threshold:.2});
+const sg=document.getElementById('skills-grid');
+if(sg)skillsObs.observe(sg);
+</script>
 </body>
 </html>
