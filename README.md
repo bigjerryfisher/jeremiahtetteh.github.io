@@ -2,7 +2,7 @@
 
 > AI & IoT Solutions Engineer · Peer Reviewer · MathWorks Contributor · Accra, Ghana
 
-🌐 **Live Site:** [jeremiahtetteh.github.io](https://jeremiahtetteh.github.io)
+🌐 **Live Site:**[bigjerryfisher.github.io](https://bigjerryfisher.github.io)
 
 ---
 
