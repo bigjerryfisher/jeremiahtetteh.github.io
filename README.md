@@ -19,8 +19,6 @@ Built with: **HTML · CSS (custom design system) · Vanilla JS**
 | File / Folder | Description |
 |---|---|
 | `index.html` | Full portfolio — projects, research, certs, experience |
-| `img/` | Project and profile images |
-| `Jeremiah_Tetteh_Research_CV_2025.pdf` | My research CV |
 
 ---
 
